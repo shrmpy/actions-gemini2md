@@ -10,4 +10,4 @@ RUN cd ${BLDDIR} && go build -v -o /usr/local/bin/g2md ./...
 FROM scratch
 COPY --from=builder /usr/local/bin/g2md /bin/gemini2md
 
-ENTRYPOINT ["/bin/gemini2md", "-dir", "gemtext"]
+ENTRYPOINT ["/bin/gemini2md", "-dir", "/github/workspace/gemtext"]
