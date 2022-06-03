@@ -7,7 +7,8 @@ COPY . ${BLDDIR}
 RUN cd ${BLDDIR} && go build -v -o /usr/local/bin/g2md ./...
 
 # final stage
-FROM scratch
+FROM debian:10-slim
 COPY --from=builder /usr/local/bin/g2md /bin/gemini2md
 
 ENTRYPOINT ["/bin/gemini2md", "-dir", "/github/workspace/gemtext"]
+
