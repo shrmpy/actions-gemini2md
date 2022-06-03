@@ -5,5 +5,5 @@ This action converts Gemini files to Markdown.
 
 ## Example usage
 
-uses: actions/actions-gemini2md@v1
+uses: shrmpy/actions-gemini2md@v1
 
