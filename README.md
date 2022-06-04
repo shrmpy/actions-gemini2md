@@ -6,7 +6,7 @@ Gemini files are expected to be in the `gemtext` directory of a repository.
 
 ## Example usage
 
-uses: shrmpy/actions-gemini2md@v1.2
+uses: shrmpy/actions-gemini2md@v1.3
 
 
 ## Credits
