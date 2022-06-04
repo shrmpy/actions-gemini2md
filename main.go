@@ -15,13 +15,13 @@ import "github.com/shrmpy/gmi"
 
 func main() {
 	var (
-		aer error
-		abs string
-		dir = flag.String("dir", "", "Work directory with Gemtext files")
+		errp error
+		abs  string
+		dir  = flag.String("dir", "", "Work directory with Gemtext files")
 	)
 	flag.Parse()
-	if abs, aer = filepath.Abs(*dir); aer != nil {
-		log.Fatalf("Unknown path, %v", aer)
+	if abs, errp = filepath.Abs(*dir); errp != nil {
+		log.Fatalf("Unknown path, %v", errp)
 	}
 	var ctrl = gmi.NewControl(context.Background())
 	ctrl.Attach(gmi.LinkLine, rewriteLink)
@@ -40,41 +40,41 @@ func main() {
 			return nil
 		}
 		var (
-			fer error
-			wer error
-			oer error
-			rdr *bufio.Reader
-			file *os.File
-			ofile string
-			md string
+			errs  error
+			rdr   *bufio.Reader
+			ifile *os.File
+			outf  string
+			md    string
 		)
-		if file, fer = os.Open(path); fer != nil {
-			log.Printf("ERROR file, %v", fer)
-			return fer
+		if ifile, errs = os.Open(path); errs != nil {
+			log.Printf("ERROR file, %v", errs)
+			return errs
 		}
-		defer file.Close()
-		log.Printf("INFO reading, %v", d.Name())
-		rdr = bufio.NewReader(file)
+		defer ifile.Close()
+		log.Printf("INFO reading, %s", d.Name())
+		rdr = bufio.NewReader(ifile)
 
-		if md, wer = ctrl.Retrieve(rdr); wer != nil {
-			log.Printf("ERROR Retrieve, %v", wer)
-			return wer
+		if md, errs = ctrl.Retrieve(rdr); errs != nil {
+			log.Printf("ERROR Retrieve, %v", errs)
+			return errs
 		}
-		ofile = fmt.Sprintf("%s.md", strings.TrimSuffix(path, ".gmi"))
-		log.Printf("INFO writing, %s : %d", ofile, len(md))
-		oer = os.WriteFile(ofile, []byte(md), d.Type())
-		if oer != nil {
-			log.Printf("ERROR output file, %v", oer)
-			return oer
+		outf = fmt.Sprintf("%s.md", strings.TrimSuffix(path, ".gmi"))
+		log.Printf("INFO writing, %s : %d", outf, len(md))
+		errs = os.WriteFile(outf, []byte(md), d.Type())
+		if errs != nil {
+			log.Printf("ERROR output file, %v", errs)
+			return errs
 		}
 
 		return nil
 	})
 }
 func rewriteLink(n gmi.Node) string {
-	var lnk = n.(*gmi.LinkNode)
-	var name = lnk.Friendly
-	var lu = lnk.URL
+	var (
+		lnk  = n.(*gmi.LinkNode)
+		name = lnk.Friendly
+		lu   = lnk.URL
+	)
 	if name == "" {
 		name = lu.String()
 	}

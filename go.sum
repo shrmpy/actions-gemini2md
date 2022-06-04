@@ -1,5 +1,5 @@
-github.com/shrmpy/gmi v0.0.0-20220603030525-bf7a648e96b5 h1:34MIBjTetLe73xicsf3Foy5/8Ssbu3eaZ6KlH4bza90=
-github.com/shrmpy/gmi v0.0.0-20220603030525-bf7a648e96b5/go.mod h1:5+OdRsPfA959/zyxivc6fB5tVGkkcqosmz53A3edy8g=
+github.com/shrmpy/gmi v0.0.0-20220604001626-9b0dc9fb5e58 h1:ltxb1XF73JUaWCj7tUn7XuGjYkrYWjhAkLduYKBzW/A=
+github.com/shrmpy/gmi v0.0.0-20220604001626-9b0dc9fb5e58/go.mod h1:fsrakcL4gsPDTgnBQ3TZBfUqt15EsNQXTpvkf3abVec=
 golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e h1:T8NU3HyQ8ClP4SEE+KbFlg6n0NhuTsN4MyznaarGsZM=
 golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e/go.mod h1:IxCIyHEi3zRg3s0A5j5BB6A9Jmi73HwBIUl50j+osU4=
 golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f h1:Ax0t5p6N38Ga0dThY21weqDEyz2oklo4IvDkpigvkD8=
