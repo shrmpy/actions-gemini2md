@@ -1,5 +1,5 @@
 name: 'Gemini to Markdown'
-description: 'Convert Gemtext to Markdown'
+description: 'Convert gemtext to Markdown'
 runs:
   using: 'docker'
   image: 'Dockerfile'
