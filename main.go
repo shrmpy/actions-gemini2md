@@ -60,7 +60,7 @@ func main() {
 		}
 		outf = fmt.Sprintf("%s.md", strings.TrimSuffix(path, ".gmi"))
 		log.Printf("INFO writing, %s : %d", outf, len(md))
-		errs = os.WriteFile(outf, []byte(md), d.Type())
+		errs = os.WriteFile(outf, []byte(md), 0666)
 		if errs != nil {
 			log.Printf("ERROR output file, %v", errs)
 			return errs
